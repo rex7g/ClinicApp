@@ -6,23 +6,28 @@ using Microsoft.EntityFrameworkCore.Metadata;
 namespace API_CLINICA.Data
 {
     public partial class CLINICAContext : DbContext
-    {     
+    {
+        public CLINICAContext()
+        {
+        }
+
         public CLINICAContext(DbContextOptions<CLINICAContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<CitasMedica> CitasMedicas { get; set; } 
-        public virtual DbSet<Doctore> Doctores { get; set; } 
-        public virtual DbSet<Empleado> Empleados { get; set; } 
-        public virtual DbSet<Especialidade> Especialidades { get; set; }
-        public virtual DbSet<HorariosMedico> HorariosMedicos { get; set; } 
-        public virtual DbSet<Usuario> Usuarios { get; set; } 
+        public virtual DbSet<CitasMedica> CitasMedicas { get; set; } = null!;
+        public virtual DbSet<Doctore> Doctores { get; set; } = null!;
+        public virtual DbSet<Empleado> Empleados { get; set; } = null!;
+        public virtual DbSet<Especialidade> Especialidades { get; set; } = null!;
+        public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-H4ICEER\\SQLEXPRESS;Initial Catalog=CLINICA;Integrated Security=True");
             }
         }
 
@@ -39,6 +44,8 @@ namespace API_CLINICA.Data
                 entity.Property(e => e.FechaCita).HasColumnType("datetime");
 
                 entity.Property(e => e.Paciente).HasMaxLength(100);
+
+                entity.Property(e => e.Status).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Doctore>(entity =>
@@ -47,15 +54,55 @@ namespace API_CLINICA.Data
 
                 entity.Property(e => e.Apellido).HasMaxLength(100);
 
+                entity.Property(e => e.Colegiatura)
+                    .HasMaxLength(50)
+                    .HasColumnName("colegiatura");
+
+                entity.Property(e => e.Consultorio)
+                    .HasMaxLength(50)
+                    .HasColumnName("consultorio");
+
                 entity.Property(e => e.Contraseña).HasMaxLength(100);
+
+                entity.Property(e => e.Direccion)
+                    .HasMaxLength(50)
+                    .HasColumnName("direccion");
+
+                entity.Property(e => e.Edad).HasColumnName("edad");
 
                 entity.Property(e => e.Email).HasMaxLength(100);
 
                 entity.Property(e => e.Especialidad).HasMaxLength(100);
 
+                entity.Property(e => e.Experiencia)
+                    .HasMaxLength(100)
+                    .HasColumnName("experiencia");
+
                 entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
 
+                entity.Property(e => e.FotoPerfil).HasColumnName("fotoPerfil");
+
+                entity.Property(e => e.HoraFin).HasColumnName("horaFin");
+
+                entity.Property(e => e.HoraInicio).HasColumnName("horaInicio");
+
+                entity.Property(e => e.HospitalAfiliado).HasMaxLength(100);
+
+                entity.Property(e => e.Idiomas).HasMaxLength(100);
+
+                entity.Property(e => e.Jornada)
+                    .HasMaxLength(50)
+                    .HasColumnName("jornada");
+
                 entity.Property(e => e.Nombre).HasMaxLength(100);
+
+                entity.Property(e => e.Origen)
+                    .HasMaxLength(50)
+                    .HasColumnName("origen");
+
+                entity.Property(e => e.Sexo)
+                    .HasMaxLength(10)
+                    .HasColumnName("sexo");
 
                 entity.Property(e => e.Telefono).HasMaxLength(20);
             });
@@ -90,11 +137,6 @@ namespace API_CLINICA.Data
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.NombreEspecialidad).HasMaxLength(100);
-            });
-
-            modelBuilder.Entity<HorariosMedico>(entity =>
-            {
-                entity.Property(e => e.Id).HasColumnName("ID");
             });
 
             modelBuilder.Entity<Usuario>(entity =>

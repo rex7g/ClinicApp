@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_CLINICA.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class DoctoresController : Controller
     {
         private readonly IDoctores _DoctoresRepository;
@@ -16,30 +18,30 @@ namespace API_CLINICA.Controllers
             _context = context;
         }
         [HttpGet("ListaDoctores")]
-        public async Task<IActionResult> Getess()
+        public async Task<IActionResult> GetDoctores()
         {
             var Doctoress = await _DoctoresRepository.GetAsyncAllDoctores();
             return Ok(Doctoress);
         }
         [HttpGet("BuscarDoctoresporEspecialidad")]
-        public async Task<IActionResult> GetDoctoress(string especialidad)
+        public async Task<IActionResult> GetDoctores(string especialidad)
         {
             var Doctoress = await _DoctoresRepository.GetasyncDoctorbyEspecialidad(especialidad);
             return Ok(Doctoress);
         }
         [HttpGet("BuscarDoctoresporNombre")]
-        public async Task<IActionResult> GetDoctoressporNombre(string nombre)
+        public async Task<IActionResult> GetDoctoresporNombre(string nombre)
         {
             var Doctoress = await _DoctoresRepository.GetDoctoresByName(nombre);
             return Ok(Doctoress);
         }
-        [HttpPut("ActualizarDoctoress")]
+        [HttpPut("ActualizarDoctores")]
         public async Task<IActionResult> UpdateDoctoresbyCodigo(string nombre, Doctore DoctoresActualizado)
         {
             var Doctores = await _DoctoresRepository.UpdateDoctoresbyNombre(nombre, DoctoresActualizado);
             return Ok(Doctores);
         }
-        [HttpDelete("DeleteDoctoress")]
+        [HttpDelete("DeleteDoctores")]
         public async Task<IActionResult> DeleteDoctoresbycodigo(string nombre)
         {
             var Doctores = await _DoctoresRepository.DeleteDoctoresByNombre(nombre);

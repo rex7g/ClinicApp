@@ -36,18 +36,19 @@ namespace API_CLINICA.Repository
             var listaDoctores = await _context.Doctores.ToListAsync();
             return listaDoctores;
         }
-    
 
-        public async Task<IEnumerable<Doctore> >GetasyncDoctorbyEspecialidad(string especialidad)
+
+        public async Task<IEnumerable<Doctore>> GetasyncDoctorbyEspecialidad(string especialidad)
         {
-            var Especialidad = await _context.Doctores.ToListAsync();
-            return Especialidad;
+            var doctoresEspecialidad = await _context.Doctores.Where(e => e.Especialidad == especialidad) .ToListAsync();
+            return doctoresEspecialidad;
+
         }
 
         public async Task<Doctore> GetDoctoresByName(string nombre)
         {
-            var DoctoresPorCodigo = await _context.Doctores.FirstOrDefaultAsync(e => e.Nombre==nombre);
-            return DoctoresPorCodigo;
+            var DoctoresPorNombre = await _context.Doctores.FirstOrDefaultAsync(e => e.Nombre == nombre);
+            return DoctoresPorNombre;
         }
 
         public async Task<Doctore> UpdateDoctoresbyNombre(string nombre, Doctore DoctoresActualizado)

@@ -11,5 +11,6 @@ namespace API_CLINICA.Data
         public DateTime? FechaCita { get; set; }
         public string? Especialidad { get; set; }
         public string? Comentarios { get; set; }
+        public string? Status { get; set; }
     }
 }
