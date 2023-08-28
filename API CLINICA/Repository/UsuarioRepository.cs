@@ -14,8 +14,37 @@ namespace API_CLINICA.Repository
 
         public async Task<Usuario> CrearUsuarionuevo(Usuario nuevoUsuario)
         {
-            throw new NotImplementedException();
+            await _context.Usuarios.AddAsync(nuevoUsuario);
+            await _context.SaveChangesAsync();
+
+            return nuevoUsuario;
         }
+
+        //public async Task<Usuario> CrearUsuarioConNombreUsuario(string nombre, string apellido)
+        //{
+        //    string[] apellidos = apellido.Split(' ');
+
+        //    Usuario usuarioConNombreUsuario = new Usuario
+        //    {
+        //        Nombre = nombre,
+        //        Apellido = apellido,
+        //        // Otras propiedades de Usuario
+        //        NombreUsuario = nombre.Substring(0, 1)
+        //    };
+
+        //    if (apellidos.Length >= 1)
+        //    {
+        //        usuarioConNombreUsuario.NombreUsuario += apellidos[0].Substring(0, 1);
+        //    }
+
+        //    if (apellidos.Length >= 2)
+        //    {
+        //        usuarioConNombreUsuario.NombreUsuario += apellidos[1].Substring(0, 1);
+        //    }
+
+        //    return usuarioConNombreUsuario;
+        //}
+
 
         public async Task<Usuario> DeleteUsuarioByEmail(string email)
         {

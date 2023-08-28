@@ -5,6 +5,7 @@ namespace API_CLINICA.Data
 {
     public partial class Usuario
     {
+        //hay que crear el campo usuario
         public int Id { get; set; }
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
