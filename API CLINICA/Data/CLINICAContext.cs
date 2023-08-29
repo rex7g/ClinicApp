@@ -145,6 +145,10 @@ namespace API_CLINICA.Data
 
                 entity.Property(e => e.Apellido).HasMaxLength(100);
 
+                entity.Property(e => e.Codigo)
+                    .HasMaxLength(10)
+                    .HasColumnName("codigo");
+
                 entity.Property(e => e.Contraseña).HasMaxLength(100);
 
                 entity.Property(e => e.Email).HasMaxLength(100);
@@ -156,6 +160,10 @@ namespace API_CLINICA.Data
                 entity.Property(e => e.Nombre).HasMaxLength(100);
 
                 entity.Property(e => e.Telefono).HasMaxLength(20);
+
+                entity.Property(e => e.Usuario1)
+                    .HasMaxLength(30)
+                    .HasColumnName("usuario");
             });
 
             OnModelCreatingPartial(modelBuilder);
