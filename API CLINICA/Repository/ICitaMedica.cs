@@ -13,5 +13,6 @@ namespace API_CLINICA.Repository
         Task<CitasMedica> DeleteCitasMedica(string paciente);
         Task<CitasMedica> UpdateCitasMedica(string paciente, CitasMedica CitasMedicaActualizada);
         Task<CitasMedica> CrearNuevaCita(CitasMedica nuevaCita);
+        Task<int> CantidadCitasmedicas();
     }
 }

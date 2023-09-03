@@ -4,12 +4,18 @@ using System.Numerics;
 
 namespace API_CLINICA.Repository
 {
-    public class CitaMedicaRepository:ICitaMedica
+    public class CitaMedicaRepository : ICitaMedica
     {
         private readonly CLINICAContext _context;
         public CitaMedicaRepository(CLINICAContext cLINICAContext)
         {
             _context = cLINICAContext;
+        }
+
+        public async Task<int> CantidadCitasmedicas()
+        {
+            var Nocitasmedicas = await _context.CitasMedicas.CountAsync();
+            return Nocitasmedicas;
         }
 
         public async Task<CitasMedica> CrearNuevaCita(CitasMedica nuevaCita)
