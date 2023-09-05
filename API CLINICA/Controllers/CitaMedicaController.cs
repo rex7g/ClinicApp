@@ -60,7 +60,7 @@ namespace API_CLINICA.Controllers
             var NumeroCitamedica = await _citaMedicaRepository.CantidadCitasmedicas();
          
                 return Ok(NumeroCitamedica); 
-        }3
+        } 
 
     }
 }

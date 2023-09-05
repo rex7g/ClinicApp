@@ -73,21 +73,26 @@
                     HorizontalOptions="FillAndExpand"
                     Placeholder="Usuario"
                     Text="{Binding UserName}"
+                    x:Name="TxtUsuario"
                     VerticalOptions="FillAndExpand" />
                     <Entry
                     Grid.Row="3"
                     HorizontalOptions="FillAndExpand"
                     IsPassword="True"
                     Placeholder="Contraseña"
+                    x:Name="TxtPassword"
                     Text="{Binding UserPassword}"
                     VerticalOptions="FillAndExpand" />
                     <Button
                     Grid.Row="4"
                     BackgroundColor="#0061b1"
                     Command="{Binding LoginBtn}"
+                    x:Name="TxtBtnLogin"
                     Margin="0,-15,0,0"
                     CornerRadius="20"
-                    Text="Inicio" />
+                    Text="Inicio" 
+                      Clicked="Button_Clicked"
+                      />
 
                     <!--<Button
                     Grid.Row="5"
@@ -129,6 +134,7 @@
                     Grid.Row="8"
                     Margin="0,-20,0,0"
                     HorizontalOptions="CenterAndExpand"
+                    
                     Text="No tiene cuenta? Registrese aqui" />
                 </Grid>
             </Frame>
