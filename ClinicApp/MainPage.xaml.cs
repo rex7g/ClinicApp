@@ -2,11 +2,13 @@
 
 public partial class MainPage : ContentPage
 {
-	
 
-	public MainPage()
+    private readonly httpServices _httpServices;
+
+	public MainPage(httpServices httpServices)
 	{
 		InitializeComponent();
+        _httpServices = httpServices;
 	}
 
     public async void Button_Clicked(object sender, EventArgs e)

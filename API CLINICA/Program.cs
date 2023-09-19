@@ -18,6 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IEmpleados, EmpleadosRepository>();
 builder.Services.AddScoped<IDoctores, DoctoresRepository>();
 builder.Services.AddScoped<ICitaMedica, CitaMedicaRepository>();
+builder.Services.AddScoped<IUser, UsuarioRepository>();
 
 
 

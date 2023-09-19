@@ -53,5 +53,14 @@ namespace API_CLINICA.Controllers
             var CitaNueva = await _citaMedicaRepository.CrearNuevaCita(nuevaCita);
             return Ok(CitaNueva);
         }
+        [HttpGet("CantidadCitaMedica")]
+        public async Task<IActionResult>GetCantidaCitasMedicas()
+        {
+
+            var NumeroCitamedica = await _citaMedicaRepository.CantidadCitasmedicas();
+         
+                return Ok(NumeroCitamedica); 
+        } 
+
     }
 }
