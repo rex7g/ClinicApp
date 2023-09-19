@@ -87,7 +87,12 @@
                     Command="{Binding LoginBtn}"
                     Margin="0,-15,0,0"
                     CornerRadius="20"
-                    Text="Inicio" />
+                    x:Name="loginButton"
+                    Text="Inicio"
+                    Clicked="Button_Clicked"
+    
+                        
+                        />
 
                     <!--<Button
                     Grid.Row="5"
@@ -107,7 +112,7 @@
                     Orientation="Horizontal"
                     Margin="0,-10,0,0"
                     Spacing="40">
-                        <Image
+                        <!--<Image
                         Aspect="AspectFit"
                         HeightRequest="30"
                         Source="images/google.svg"
@@ -116,7 +121,7 @@
                         Aspect="AspectFit"
                         HeightRequest="30"
                         Source="images/facebook.svg"
-                        WidthRequest="30" />
+                        WidthRequest="30" />-->
 
                     </StackLayout>
                     <Label
