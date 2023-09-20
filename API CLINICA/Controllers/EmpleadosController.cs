@@ -25,37 +25,37 @@ namespace API_CLINICA.Controllers
         public async Task< IActionResult> GetEmpleados()
         {
             var empleados= await _empleadoRepository.GetAsyncAllEmpleado();
-            return Ok(empleados);
+            return Json(empleados);
         }
         [HttpGet("BuscarEmpleadoporCodigo")]
         public async Task<IActionResult> GetEmpleadosporCodigo(string codigo)
         {
             var empleados = await _empleadoRepository.GetAsyncEmpleado(codigo);
-            return Ok(empleados);
+            return Json(empleados);
         }
         [HttpGet("BuscarEmpleadoporNombre")]
         public async Task<IActionResult> GetEmpleadosporNombre(string nombre)
         {
             var empleados = await _empleadoRepository.GetEmpleadoByName(nombre);
-            return Ok(empleados);
+            return Json(empleados);
         }
         [HttpPut("ActualizarEmpleados")]
         public async Task<IActionResult>UpdateEmpleadobyCodigo(string codigo,Empleado empleadoActualizado)
         {
             var empleados=await _empleadoRepository.UpdateEmpleadobyCodigo(codigo,empleadoActualizado);
-            return Ok(empleados);
+            return Json(empleados);
         }
         [HttpDelete("DeleteEmpleados")]
         public async Task<IActionResult>DeleteEmpleadobycodigo(string codigo)
         {
             var empleados=await _empleadoRepository.DeleteEmpleadoByCodigo(codigo);
-            return Ok();
+            return Json(empleados);
         }
         [HttpPost("CrearEmpleado")]
         public async Task<IActionResult>CrearEmpleado([FromBody]Empleado nuevoEmpleado)
         {
             var empleadoNuevo = await _empleadoRepository.CrearEmpleadonuevo(nuevoEmpleado);
-            return Ok(empleadoNuevo);
+            return Json(empleadoNuevo);
         }
     }
 }

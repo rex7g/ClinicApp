@@ -21,37 +21,37 @@ namespace API_CLINICA.Controllers
         public async Task<IActionResult> GetDoctores()
         {
             var Doctoress = await _DoctoresRepository.GetAsyncAllDoctores();
-            return Ok(Doctoress);
+            return Json(Doctoress);
         }
         [HttpGet("BuscarDoctoresporEspecialidad")]
         public async Task<IActionResult> GetDoctores(string especialidad)
         {
             var Doctoress = await _DoctoresRepository.GetasyncDoctorbyEspecialidad(especialidad);
-            return Ok(Doctoress);
+            return Json(Doctoress);
         }
         [HttpGet("BuscarDoctoresporNombre")]
         public async Task<IActionResult> GetDoctoresporNombre(string nombre)
         {
             var Doctoress = await _DoctoresRepository.GetDoctoresByName(nombre);
-            return Ok(Doctoress);
+            return Json(Doctoress);
         }
         [HttpPut("ActualizarDoctores")]
         public async Task<IActionResult> UpdateDoctoresbyCodigo(string nombre, Doctore DoctoresActualizado)
         {
             var Doctores = await _DoctoresRepository.UpdateDoctoresbyNombre(nombre, DoctoresActualizado);
-            return Ok(Doctores);
+            return Json(Doctores);
         }
         [HttpDelete("DeleteDoctores")]
         public async Task<IActionResult> DeleteDoctoresbycodigo(string nombre)
         {
             var Doctores = await _DoctoresRepository.DeleteDoctoresByNombre(nombre);
-            return Ok(Doctores);
+            return Json(Doctores);
         }
         [HttpPost("CrearDoctores")]
         public async Task<IActionResult> CrearDoctores([FromBody] Doctore nuevoDoctores)
         {
             var DoctoresNuevo = await _DoctoresRepository.CrearDoctoresnuevo(nuevoDoctores);
-            return Ok(DoctoresNuevo);
+            return Json(DoctoresNuevo);
         }
     }
 }

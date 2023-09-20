@@ -20,46 +20,45 @@ namespace API_CLINICA.Controllers
         public async Task<IActionResult> GetCitasMedicas()
         {
             var Doctoress = await _citaMedicaRepository.GetAsyncAllCitasMedica();
-            return Ok(Doctoress);
+            return Json(Doctoress);
         }
        
         [HttpGet("BuscarCitaporStatus")]
         public async Task<IActionResult> GetCitasMedicaByStatus(string paciente)
         {
             var Doctoress = await _citaMedicaRepository.GetCitasMedicaByStatus(paciente);
-            return Ok(Doctoress);
+            return Json(Doctoress);
         }
         [HttpGet("BuscarCitaporDoctor")]
         public async Task<IActionResult> GetCitasMedicaByDoctor(string doctor)
         {
             var cita = await _citaMedicaRepository.GetCitasMedicaByDoctor(doctor);
-            return Ok(cita);
+            return Json(cita);
         }
         [HttpPut("ActualizarCita")]
         public async Task<IActionResult> UpdateCitaMedicabyPaciente(string paciente, CitasMedica citas)
         {
             var cita = await _citaMedicaRepository.UpdateCitasMedica(paciente, citas);
-            return Ok(cita);
+            return Json(cita);
         }
         [HttpDelete("DeleteCita")]
         public async Task<IActionResult> DeleteCitasMedicas(string paciente)
         {
             var Doctores = await _citaMedicaRepository.DeleteCitasMedica(paciente);
-            return Ok(Doctores);
+            return Json(Doctores);
         }
         [HttpPost("CrearCita")]
         public async Task<IActionResult> CrearCitaMedica([FromBody] CitasMedica nuevaCita)
         {
             var CitaNueva = await _citaMedicaRepository.CrearNuevaCita(nuevaCita);
-            return Ok(CitaNueva);
+            return Json(CitaNueva);
         }
         [HttpGet("CantidadCitaMedica")]
         public async Task<IActionResult>GetCantidaCitasMedicas()
         {
 
             var NumeroCitamedica = await _citaMedicaRepository.CantidadCitasmedicas();
-         
-                return Ok(NumeroCitamedica); 
+            return Json(NumeroCitamedica); 
         } 
 
     }

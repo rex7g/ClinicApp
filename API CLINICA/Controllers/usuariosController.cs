@@ -26,25 +26,25 @@ namespace API_CLINICA.Controllers
         public async Task<IActionResult> GetUsuarios()
         {
             var Usuario = await _usuarioRepository.GetAsyncAllUsuario();
-            return Ok(Usuario);
+            return Json(Usuario);
         }
         [HttpGet("BuscarUsuarioporCodigo")]
         public async Task<IActionResult> GetUsuarioporCodigo(string codigo)
         {
             var Usuario = await _usuarioRepository.GetUsuarioByCodigo(codigo);
-            return Ok(Usuario);
+            return Json(Usuario);
         }
         [HttpGet("BuscarUsuarioporNombre")]
         public async Task<IActionResult> GetUsuarioporNombre(string nombre)
         {
             var Usuario = await _usuarioRepository.GetUsuarioByName(nombre);
-            return Ok(Usuario);
+            return Json(Usuario);
         }
         [HttpPut("ActualizarUsuario")]
         public async Task<IActionResult> UpdateEmpleadobyCodigo(string codigo, Usuario empleadoActualizado)
         {
             var Usuario = await _usuarioRepository.UpdateUsuariobyEmail(codigo, empleadoActualizado);
-            return Ok(Usuario);
+            return Json(Usuario);
         }
         [HttpDelete("DeleteUsuario")]
         public async Task<IActionResult> DeleteUsuarioByEmail(string email)

@@ -157,9 +157,6 @@ namespace API_CLINICA.Data
 
                 entity.Property(e => e.Telefono).HasMaxLength(20);
 
-                entity.Property(e => e.usuario)
-                    .HasMaxLength(30)
-                    .HasColumnName("usuario");
             });
 
             OnModelCreatingPartial(modelBuilder);

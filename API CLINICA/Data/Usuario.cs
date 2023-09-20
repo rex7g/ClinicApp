@@ -13,7 +13,6 @@ namespace API_CLINICA.Data
         public string? Telefono { get; set; }
         public string? Contraseña { get; set; }
         public DateTime? FechaCreacion { get; set; }
-        public string? usuario { get; set; }
         public string? Codigo { get; set; }
     }
 }
