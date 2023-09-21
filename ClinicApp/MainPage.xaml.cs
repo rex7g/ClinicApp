@@ -1,19 +1,20 @@
-﻿namespace ClinicApp.Pages;
+﻿using ClinicApp.Services;
+
+namespace ClinicApp;
 
 public partial class MainPage : ContentPage
 {
 
     private readonly httpServices _httpServices;
 
-	public MainPage(httpServices httpServices)
+	public MainPage()
 	{
 		InitializeComponent();
-        _httpServices = httpServices;
 	}
 
     public async void Button_Clicked(object sender, EventArgs e)
 	{
-		await Navigation.PushModalAsync(new HomePage());
+		//await Navigation.PushModalAsync(new HomePage());
 	}
 }
 

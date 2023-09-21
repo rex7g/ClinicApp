@@ -13,7 +13,6 @@ namespace API_CLINICA.Controllers
         private readonly IEmpleados _empleadoRepository;
         private readonly CLINICAContext _context;
 
-
         public EmpleadosController(IEmpleados empleados,CLINICAContext context)
         {
             _empleadoRepository = empleados;
