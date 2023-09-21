@@ -59,7 +59,7 @@ namespace ClinicApp.Services
 
             try
             {
-                Uri uri = new(string.Format($"{Constants.API_BASE_ADDRESS}api/CitaMedica//BuscarUsuarioporNombre/{usuario}"));
+                Uri uri = new(string.Format($"{Constants.API_BASE_ADDRESS}/api/CitaMedica/BuscarUsuarioporNombre/{usuario}"));
 
                 HttpResponseMessage response = await client.GetAsync(uri);
 
@@ -84,7 +84,7 @@ namespace ClinicApp.Services
 
 
         }
-        //public async Task<Usuario>GetPasword(string pasword)
+        //public async Task<Usuario> GetPasword(string pasword)
         //{
 
         //}

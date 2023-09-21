@@ -1,5 +1,4 @@
 ﻿using ClinicApp.Services;
-using Org.Apache.Http.Protocol;
 
 namespace ClinicApp;
 
@@ -16,6 +15,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+        builder.Services.AddTransient<IHttpService, httpServices>();
         builder.Services.AddSingleton<MainPage>();
 
         return builder.Build();

@@ -6,4 +6,11 @@ public partial class HomePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void CitasButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+   
 }

@@ -8,6 +8,9 @@ namespace ClinicApp
 {
     public class Constants
     {
-       public static string API_BASE_ADDRESS = "http://10.0.2.2:8099/";
+        //Desarrollo
+        //public static string API_BASE_ADDRESS = "http://10.0.2.2:8099/";
+        //Produccion
+        public static string API_BASE_ADDRESS = "http://apiclinica.somee.com";
     }
 }

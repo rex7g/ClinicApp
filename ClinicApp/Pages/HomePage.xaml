@@ -4,9 +4,42 @@
              x:Class="ClinicApp.Pages.HomePage"
              Title="HomePage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        
+        <Grid
+                    BackgroundColor="#0061b1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" HorizontalOptions="Center">
+                <Image Margin="0,30"
+                Aspect="AspectFit"
+                 HeightRequest="100"
+                 Source="/images/logoClinica.png"
+                 WidthRequest="70" />
+
+            </StackLayout>
+              
+      </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout>
+                <Label Text="Menu" FontSize="24" HorizontalOptions="CenterAndExpand" Margin="10"/>
+                <Button Text="Citas Médicas" Grid.Row="0" Grid.Column="0"  Background="#0061b1" />
+                <Button Text="Doctores" Grid.Row="0" Grid.Column="1"/>
+                <Button Text="Ajustes" Grid.Row="1" Grid.Column="0" />
+                <Button Text="Salir" Grid.Row="1" Grid.Column="1"/>
+            </StackLayout>
+        </Grid>
+ 
     </VerticalStackLayout>
 </ContentPage>
