@@ -18,7 +18,7 @@ public partial class MainPage : ContentPage
 	{
 		var usuario=user.Text.Trim();
 		var Password=password.Text.Trim();
-		//var ValidaUsuario = _httpServices.GetUsuario(usuario);
+		var ValidaUsuario = _httpServices.GetUsuario(usuario);
 		await Navigation.PushModalAsync(new HomePage());
 	}
 }

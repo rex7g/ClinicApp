@@ -30,8 +30,7 @@ namespace ClinicApp.Services
             try
             {
                 Uri uri = new(string.Format($"{Constants.API_BASE_ADDRESS}api/CitaMedica/ListaCitasMedicas"));
-
-                HttpResponseMessage response = await client.GetAsync(uri);
+                var response = await client.GetAsync(uri);  
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
@@ -59,9 +58,8 @@ namespace ClinicApp.Services
 
             try
             {
-                Uri uri = new(string.Format($"{Constants.API_BASE_ADDRESS}/api/CitaMedica/BuscarUsuarioporNombre/{usuario}"));
-
-                HttpResponseMessage response = await client.GetAsync(uri);
+                var query= string.Format($"{Constants.API_BASE_ADDRESS}/api/CitaMedica/BuscarUsuarioporNombre?nombre={usuario}");
+                var response = await client.GetAsync(query);
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {

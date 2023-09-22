@@ -11,4 +11,19 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <TabBar>
+        <Tab x:Name="HomeTab">
+            <!--<ShellContent ContentTemplate="{DataTemplate views:CitasPage}" Route="home"/>-->
+        </Tab>
+        <Tab x:Name="SectionsTab">
+            <!--<ShellContent ContentTemplate="{DataTemplate views:CitasPage}" Route="sections"/>-->
+        </Tab>
+        <Tab x:Name="BookmarksTab">
+            <!--<ShellContent ContentTemplate="{DataTemplate views:RegisterPage}" Route="bookmarks"/>-->
+        </Tab>
+        <Tab x:Name="ProfileTab">
+            <!--<ShellContent ContentTemplate="{DataTemplate views:SettingPage}" Route="profile"/>-->
+        </Tab>
+    </TabBar>
+
 </Shell>
