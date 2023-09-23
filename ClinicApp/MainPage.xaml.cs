@@ -1,5 +1,7 @@
-﻿using ClinicApp.Pages;
+﻿using ClinicApp.Models;
+using ClinicApp.Pages;
 using ClinicApp.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClinicApp;
 
@@ -18,8 +20,14 @@ public partial class MainPage : ContentPage
 	{
 		var usuario=user.Text.Trim();
 		var Password=password.Text.Trim();
-		var ValidaUsuario = _httpServices.GetUsuario(usuario);
-		await Navigation.PushModalAsync(new HomePage());
+		var ValidaUsuario = await _httpServices.GetUsuario(usuario);
+
+
+        if (ValidaUsuario != null && ValidaUsuario.Nombre == usuario )
+        {
+            await Navigation.PushModalAsync(new HomePage());
+        }
+       
 	}
 }
 

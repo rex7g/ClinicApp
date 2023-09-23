@@ -7,10 +7,10 @@ public partial class HomePage : ContentPage
 		InitializeComponent();
 	}
 
-    private void CitasButton_Clicked(object sender, EventArgs e)
+    private async void Button_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushModalAsync(new CitasPage());
     }
 
-   
+  
 }

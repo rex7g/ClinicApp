@@ -34,10 +34,10 @@
             </Grid.ColumnDefinitions>
             <StackLayout>
                 <Label Text="Menu" FontSize="24" HorizontalOptions="CenterAndExpand" Margin="10"/>
-                <Button Text="Citas Médicas" Grid.Row="0" Grid.Column="0"  Background="#0061b1" />
-                <Button Text="Doctores" Grid.Row="0" Grid.Column="1"/>
-                <Button Text="Ajustes" Grid.Row="1" Grid.Column="0" />
-                <Button Text="Salir" Grid.Row="1" Grid.Column="1"/>
+                <Button Text="Citas Médicas" Clicked="Button_Clicked" Grid.Row="0" Grid.Column="0"  Background="#0061b1" />
+                <Button Text="Doctores"  Grid.Row="0" Grid.Column="1" Background="#0061b1"/>
+                <Button Text="Ajustes"  Grid.Row="1" Grid.Column="0" Background="#0061b1" />
+                <Button Text="Salir" Grid.Row="1" Grid.Column="1" Background="#0061b1"/>
             </StackLayout>
         </Grid>
  

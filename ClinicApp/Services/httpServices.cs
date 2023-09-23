@@ -58,19 +58,24 @@ namespace ClinicApp.Services
 
             try
             {
-                var query= string.Format($"{Constants.API_BASE_ADDRESS}/api/CitaMedica/BuscarUsuarioporNombre?nombre={usuario}");
-                var response = await client.GetAsync(query);
+              
+                Uri uri = new(string.Format($"{Constants.API_BASE_ADDRESS}api/usuarios/BuscarUsuarioporNombre?nombre={usuario}",string.Empty));
+                var response = await client.GetAsync(uri);
+                var prueba=response.Content.ReadAsStringAsync();
 
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if(response.StatusCode==System.Net.HttpStatusCode.OK)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<Usuario>(jsonString);
                 }
                 else
                 {
-                    var jsonString = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<Usuario>(jsonString);
+                    return new Usuario();
                 }
+
+                
+                
+                
 
             }
             catch (Exception ex)
